@@ -1,0 +1,489 @@
+/* style.css */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:#050b14;
+  color:#dffcff;
+  font-family:'Orbitron', sans-serif;
+  overflow-x:hidden;
+  min-height:100vh;
+  position:relative;
+}
+
+/* GRID OVERLAY */
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+
+  background-image:
+    linear-gradient(rgba(0,229,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,229,255,0.04) 1px, transparent 1px);
+
+  background-size:40px 40px;
+
+  pointer-events:none;
+  z-index:-1;
+}
+
+/* NAVBAR */
+
+.navbar{
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:20px 40px;
+
+  border-bottom:1px solid rgba(0,229,255,0.3);
+
+  background:rgba(5,11,20,0.95);
+  backdrop-filter:blur(10px);
+
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+
+.logo{
+  color:#00e5ff;
+  font-size:28px;
+  font-weight:700;
+  letter-spacing:3px;
+
+  text-shadow:0 0 15px rgba(0,229,255,0.8);
+}
+
+.flight-info{
+  font-size:14px;
+  color:#8bdfff;
+  letter-spacing:2px;
+}
+
+.system-status{
+  color:#00ff9d;
+  font-size:14px;
+  font-weight:600;
+
+  text-shadow:0 0 10px rgba(0,255,157,0.8);
+}
+
+/* DASHBOARD */
+
+.dashboard{
+  display:grid;
+  grid-template-columns:1fr 1.2fr 1fr;
+  gap:20px;
+
+  padding:20px;
+}
+
+/* COLUMNS */
+
+.left-column,
+.center-column,
+.right-column{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+/* PANELS */
+
+.panel{
+  background:rgba(10,20,35,0.85);
+
+  border:1px solid rgba(0,229,255,0.2);
+
+  padding:20px;
+
+  position:relative;
+
+  overflow:hidden;
+
+  box-shadow:
+    0 0 20px rgba(0,229,255,0.08),
+    inset 0 0 10px rgba(0,229,255,0.03);
+}
+
+/* CORNER GLOW */
+
+.panel::before{
+  content:"";
+
+  position:absolute;
+  top:0;
+  left:0;
+
+  width:60px;
+  height:2px;
+
+  background:#00e5ff;
+
+  box-shadow:0 0 10px #00e5ff;
+}
+
+/* TITLES */
+
+.panel-title{
+  color:#00e5ff;
+
+  font-size:14px;
+  font-weight:600;
+
+  margin-bottom:20px;
+
+  letter-spacing:2px;
+
+  text-shadow:0 0 10px rgba(0,229,255,0.6);
+}
+
+/* METRIC GRID */
+
+.metric-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+}
+
+.metric-card{
+  border:1px solid rgba(0,229,255,0.15);
+
+  padding:15px;
+
+  background:rgba(0,229,255,0.03);
+
+  transition:0.3s;
+}
+
+.metric-card:hover{
+  transform:translateY(-3px);
+
+  box-shadow:0 0 15px rgba(0,229,255,0.2);
+}
+
+.metric-card span{
+  font-size:12px;
+  color:#7fdfff;
+  letter-spacing:1px;
+}
+
+.metric-card h2{
+  margin-top:10px;
+
+  color:#00e5ff;
+
+  font-size:28px;
+
+  text-shadow:0 0 12px rgba(0,229,255,0.6);
+}
+
+/* STRUCTURAL */
+
+.structural-list{
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+}
+
+.struct-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:12px;
+
+  border:1px solid rgba(0,229,255,0.12);
+
+  background:rgba(255,255,255,0.02);
+}
+
+.struct-item span{
+  color:#8fdfff;
+  font-size:12px;
+}
+
+.struct-item strong{
+  color:#00ff9d;
+  font-size:13px;
+}
+
+/* FADEC */
+
+.fadec-box{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.fadec-box p{
+  color:#8effc6;
+
+  font-size:13px;
+
+  border-left:2px solid #00ff9d;
+
+  padding-left:12px;
+}
+
+/* RADAR */
+
+.radar-panel{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+}
+
+.radar{
+  position:relative;
+
+  width:320px;
+  height:320px;
+
+  border-radius:50%;
+
+  border:2px solid rgba(0,229,255,0.3);
+
+  overflow:hidden;
+
+  background:radial-gradient(circle, rgba(0,229,255,0.05), transparent 70%);
+}
+
+/* RADAR RINGS */
+
+.radar-ring{
+  position:absolute;
+
+  border:1px solid rgba(0,229,255,0.15);
+
+  border-radius:50%;
+
+  top:50%;
+  left:50%;
+
+  transform:translate(-50%, -50%);
+}
+
+.ring1{
+  width:100px;
+  height:100px;
+}
+
+.ring2{
+  width:200px;
+  height:200px;
+}
+
+.ring3{
+  width:300px;
+  height:300px;
+}
+
+/* RADAR SWEEP */
+
+.radar-sweep{
+  position:absolute;
+
+  width:50%;
+  height:50%;
+
+  top:50%;
+  left:50%;
+
+  transform-origin:top left;
+
+  background:linear-gradient(
+    45deg,
+    rgba(0,229,255,0.35),
+    transparent
+  );
+
+  animation:rotateRadar 4s linear infinite;
+}
+
+/* DOTS */
+
+.radar-dot{
+  position:absolute;
+
+  width:10px;
+  height:10px;
+
+  border-radius:50%;
+
+  background:#00ff9d;
+
+  box-shadow:0 0 15px #00ff9d;
+}
+
+.dot1{
+  top:25%;
+  left:60%;
+}
+
+.dot2{
+  top:60%;
+  left:35%;
+}
+
+.dot3{
+  top:70%;
+  left:72%;
+}
+
+@keyframes rotateRadar{
+  from{
+    transform:rotate(0deg);
+  }
+
+  to{
+    transform:rotate(360deg);
+  }
+}
+
+/* THERMAL MAP */
+
+.thermal-grid{
+  display:grid;
+
+  grid-template-columns:repeat(3, 1fr);
+
+  gap:12px;
+}
+
+.thermal-cell{
+  aspect-ratio:1/1;
+
+  border:1px solid rgba(255,255,255,0.1);
+}
+
+.green{
+  background:#00ff9d;
+
+  box-shadow:0 0 15px rgba(0,255,157,0.4);
+}
+
+.yellow{
+  background:#ffae00;
+
+  box-shadow:0 0 15px rgba(255,174,0,0.4);
+}
+
+.red{
+  background:#ff3b3b;
+
+  box-shadow:0 0 15px rgba(255,59,59,0.5);
+
+  animation:pulseRed 1s infinite;
+}
+
+@keyframes pulseRed{
+  50%{
+    opacity:0.4;
+  }
+}
+
+/* AI BOX */
+
+.ai-box{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.ai-box p{
+  color:#c6f9ff;
+
+  font-size:13px;
+
+  line-height:1.7;
+}
+
+/* ALERTS */
+
+.alert{
+  padding:14px;
+
+  margin-bottom:15px;
+
+  font-size:12px;
+  font-weight:600;
+
+  letter-spacing:1px;
+}
+
+.danger{
+  background:rgba(255,59,59,0.12);
+
+  border-left:3px solid #ff3b3b;
+
+  color:#ff7070;
+
+  animation:blink 1s infinite;
+}
+
+.warning{
+  background:rgba(255,174,0,0.12);
+
+  border-left:3px solid #ffae00;
+
+  color:#ffd27d;
+}
+
+.nominal{
+  background:rgba(0,255,157,0.12);
+
+  border-left:3px solid #00ff9d;
+
+  color:#87ffd2;
+}
+
+@keyframes blink{
+  50%{
+    opacity:0.5;
+  }
+}
+
+/* CHARTS */
+
+canvas{
+  width:100% !important;
+  height:250px !important;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1200px){
+
+  .dashboard{
+    grid-template-columns:1fr;
+  }
+
+  .radar{
+    width:260px;
+    height:260px;
+  }
+
+}
+
+@media(max-width:600px){
+
+  .navbar{
+    flex-direction:column;
+    gap:12px;
+    text-align:center;
+  }
+
+  .metric-grid{
+    grid-template-columns:1fr;
+  }
+
+}

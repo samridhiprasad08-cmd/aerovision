@@ -1,0 +1,288 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>AeroVision NX</title>
+
+  <!-- ORBITRON FONT -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- CHART JS -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <header class="navbar">
+
+    <div class="logo">
+      AEROVISION NX
+    </div>
+
+    <div class="flight-info">
+      AIRCRAFT : AX-77B
+    </div>
+
+    <div class="system-status">
+      ● SYSTEM NOMINAL
+    </div>
+
+  </header>
+
+  <!-- MAIN DASHBOARD -->
+
+  <main class="dashboard">
+
+    <!-- LEFT COLUMN -->
+
+    <section class="left-column">
+
+      <!-- ENGINE CORE -->
+
+      <div class="panel">
+
+        <div class="panel-title">
+          ENGINE CORE
+        </div>
+
+        <div class="metric-grid">
+
+          <div class="metric-card">
+            <span>N1 RPM</span>
+            <h2 id="rpm">82%</h2>
+          </div>
+
+          <div class="metric-card">
+            <span>EGT</span>
+            <h2 id="egt">721°C</h2>
+          </div>
+
+          <div class="metric-card">
+            <span>CPR</span>
+            <h2 id="cpr">34.2</h2>
+          </div>
+
+          <div class="metric-card">
+            <span>THRUST</span>
+            <h2 id="thrust">91 kN</h2>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- STRUCTURAL HEALTH -->
+
+      <div class="panel">
+
+        <div class="panel-title">
+          STRUCTURAL HEALTH
+        </div>
+
+        <div class="structural-list">
+
+          <div class="struct-item">
+            <span>Wing Load</span>
+            <strong>NORMAL</strong>
+          </div>
+
+          <div class="struct-item">
+            <span>Fatigue Index</span>
+            <strong id="fatigue">12%</strong>
+          </div>
+
+          <div class="struct-item">
+            <span>Vibration Level</span>
+            <strong id="vibration">STABLE</strong>
+          </div>
+
+          <div class="struct-item">
+            <span>Hydraulic Pressure</span>
+            <strong id="hydraulic">3010 psi</strong>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- FADEC -->
+
+      <div class="panel">
+
+        <div class="panel-title">
+          FADEC STATUS
+        </div>
+
+        <div class="fadec-box">
+
+          <p>✓ AUTO THRUST ACTIVE</p>
+          <p>✓ FUEL MIX OPTIMIZED</p>
+          <p>✓ THERMAL CONTROL STABLE</p>
+          <p>✓ ENGINE RESPONSE NORMAL</p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- CENTER COLUMN -->
+
+    <section class="center-column">
+
+      <!-- RADAR -->
+
+      <div class="panel radar-panel">
+
+        <div class="panel-title">
+          TACTICAL RADAR
+        </div>
+
+        <div class="radar">
+
+          <div class="radar-ring ring1"></div>
+          <div class="radar-ring ring2"></div>
+          <div class="radar-ring ring3"></div>
+
+          <div class="radar-sweep"></div>
+
+          <div class="radar-dot dot1"></div>
+          <div class="radar-dot dot2"></div>
+          <div class="radar-dot dot3"></div>
+
+        </div>
+
+      </div>
+
+      <!-- ALTITUDE CHART -->
+
+      <div class="panel chart-panel">
+
+        <div class="panel-title">
+          ALTITUDE TELEMETRY
+        </div>
+
+        <canvas id="altitudeChart"></canvas>
+
+      </div>
+
+      <!-- ENGINE HEALTH CHART -->
+
+      <div class="panel chart-panel">
+
+        <div class="panel-title">
+          ENGINE HEALTH ANALYTICS
+        </div>
+
+        <canvas id="engineChart"></canvas>
+
+      </div>
+
+    </section>
+
+    <!-- RIGHT COLUMN -->
+
+    <section class="right-column">
+
+      <!-- THERMAL MAP -->
+
+      <div class="panel">
+
+        <div class="panel-title">
+          THERMAL MAP
+        </div>
+
+        <div class="thermal-grid">
+
+          <div class="thermal-cell green"></div>
+          <div class="thermal-cell green"></div>
+          <div class="thermal-cell yellow"></div>
+
+          <div class="thermal-cell green"></div>
+          <div class="thermal-cell yellow"></div>
+          <div class="thermal-cell red"></div>
+
+          <div class="thermal-cell green"></div>
+          <div class="thermal-cell yellow"></div>
+          <div class="thermal-cell yellow"></div>
+
+        </div>
+
+      </div>
+
+      <!-- AI MAINTENANCE -->
+
+      <div class="panel">
+
+        <div class="panel-title">
+          AI MAINTENANCE ANALYSIS
+        </div>
+
+        <div class="ai-box">
+
+          <p>
+            • Turbine vibration anomaly detected
+          </p>
+
+          <p>
+            • Bearing wear probability : 14%
+          </p>
+
+          <p>
+            • Suggested inspection cycle : 38 hrs
+          </p>
+
+          <p>
+            • Compressor efficiency : 96%
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- ALERT SYSTEM -->
+
+      <div class="panel">
+
+        <div class="panel-title">
+          ALERT SYSTEM
+        </div>
+
+        <div class="alert danger">
+          ENGINE CORE TEMP RISE
+        </div>
+
+        <div class="alert warning">
+          HIGH TURBULENCE REGION
+        </div>
+
+        <div class="alert nominal">
+          NAVIGATION STABLE
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- JS -->
+  <script src="script.js"></script>
+
+</body>
+
+</html>
